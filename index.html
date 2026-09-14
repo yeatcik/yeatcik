@@ -1,0 +1,747 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOLLITE - Official Site</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0b0612;
+            --card-bg: rgba(20, 10, 30, 0.75);
+            --card-border: rgba(162, 155, 254, 0.15);
+            --accent-purple: #9b59b6;
+            --neon-purple: #b55fe6;
+            --purple-btn-start: #7d3cff;
+            --purple-btn-end: #b55fe6;
+            --text-main: #ffffff;
+            --text-muted: #a693b8;
+            --text-sub: #6c5780;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            padding-bottom: 90px;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(155, 89, 182, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 40%, rgba(181, 95, 230, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(125, 60, 255, 0.1) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(181, 95, 230, 0.3);
+            border-radius: 3px;
+        }
+
+        .container {
+            max-width: 540px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-top: 1rem;
+        }
+
+        .profile-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, var(--accent-purple), var(--purple-btn-start));
+            padding: 3px;
+            box-shadow: 0 0 20px rgba(181, 95, 230, 0.4);
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #000;
+        }
+
+        .profile-name {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+        }
+
+        .profile-bio {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-number {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.03);
+            user-select: none;
+            pointer-events: none;
+            line-height: 1;
+        }
+
+        .card-tag {
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            color: var(--neon-purple);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-tag::before {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 2px;
+            background: var(--neon-purple);
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.1;
+            margin-bottom: 0.8rem;
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .partner-logo-box {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+            overflow: hidden;
+            padding: 8px;
+        }
+
+        .partner-logo-box img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .code-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(181, 95, 230, 0.25);
+            border-radius: 12px;
+            padding: 0.8rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .code-box .label {
+            display: block;
+            font-size: 0.65rem;
+            color: var(--text-sub);
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+
+        .code-box .val {
+            font-size: 1.2rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+
+        .btn-copy {
+            background: rgba(181, 95, 230, 0.15);
+            border: 1px solid rgba(181, 95, 230, 0.3);
+            color: var(--neon-purple);
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .btn-copy:active {
+            transform: scale(0.9);
+            background: var(--neon-purple);
+            color: #fff;
+        }
+
+        .btn-action {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 1rem;
+            border-radius: 12px;
+            background: linear-gradient(90deg, var(--purple-btn-start), var(--purple-btn-end));
+            color: #fff;
+            font-weight: 800;
+            font-size: 0.95rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(125, 60, 255, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        .btn-action:hover {
+            opacity: 0.95;
+            transform: translateY(-2px);
+        }
+
+        .config-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 14px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .config-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .config-title {
+            font-size: 0.9rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .crosshair-preview {
+            width: 100%;
+            height: 110px;
+            background: radial-gradient(circle, #4a4d57 0%, #252830 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .crosshair-preview svg {
+            transform: scale(1.5);
+        }
+
+        .copy-input-group {
+            display: flex;
+            gap: 8px;
+            background: #000;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 4px 4px 4px 12px;
+            align-items: center;
+        }
+
+        .copy-input-group input {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            width: 100%;
+            outline: none;
+            font-family: monospace;
+        }
+
+        .btn-copy-sm {
+            background: var(--neon-purple);
+            color: #fff;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .btn-copy-sm:active {
+            opacity: 0.8;
+        }
+
+        .sens-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .sens-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .sens-item:last-child {
+            border-bottom: none;
+        }
+
+        .sens-label {
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: var(--text-sub);
+            text-transform: uppercase;
+        }
+
+        .sens-value {
+            font-size: 0.85rem;
+            font-weight: 900;
+            color: #fff;
+        }
+
+        .music-player {
+            position: fixed;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 30px);
+            max-width: 510px;
+            background: rgba(20, 10, 30, 0.95);
+            border: 1px solid rgba(181, 95, 230, 0.3);
+            backdrop-filter: blur(15px);
+            border-radius: 16px;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 999;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .player-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            overflow: hidden;
+        }
+
+        .btn-play {
+            background: rgba(181, 95, 230, 0.2);
+            border: 1px solid var(--accent-purple);
+            color: var(--neon-purple);
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            transition: background 0.2s;
+        }
+
+        .btn-play:hover {
+            background: rgba(181, 95, 230, 0.4);
+        }
+
+        .track-name {
+            font-size: 0.8rem;
+            font-weight: 700;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: #fff;
+        }
+
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-music-icon {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--neon-purple);
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        .volume-bar {
+            width: 60px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .volume-level {
+            width: 70%;
+            height: 100%;
+            background: var(--neon-purple);
+            border-radius: 3px;
+            box-shadow: 0 0 6px var(--neon-purple);
+        }
+
+        .toast {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background: var(--neon-purple);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            box-shadow: 0 5px 15px rgba(181, 95, 230, 0.5);
+            transition: transform 0.3s ease;
+            z-index: 10000;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="toast" class="toast">Skopiowano kod do schowka!</div>
+
+    <div class="container">
+        
+        <!-- HEADER -->
+        <header>
+            <div class="profile-avatar">
+                <img src="https://via.placeholder.com/150/0b0612/b55fe6?text=V" alt="VOLLITE">
+            </div>
+            <h1 class="profile-name">VOLLITE</h1>
+            <p class="profile-bio">OFFICIAL PARTNER & CONFIG HUB</p>
+        </header>
+
+        <!-- CARD 1: CASEHUG -->
+        <div class="card">
+            <div class="card-tag">PARTNER GŁÓWNY • 18+ • #REKLAMA</div>
+            <h2 class="card-title">CASEHUG</h2>
+            <p class="card-desc">Korzystaj z kodu polecającego Vollite u mojego partnera.</p>
+
+            <div class="partner-logo-box">
+                <img src="https://i.postimg.cc/RhckVnHm/casehug-logo.webp" alt="CaseHug">
+            </div>
+
+            <div class="code-box">
+                <div>
+                    <span class="label">Mój kod polecający</span>
+                    <span class="val">VOLLITE</span>
+                </div>
+                <button class="btn-copy" onclick="copyText('VOLLITE')">
+                    <i class="fa-regular fa-copy"></i>
+                </button>
+            </div>
+
+            <a href="#" target="_blank" class="btn-action">
+                Przejdź do CaseHug <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem;"></i>
+            </a>
+        </div>
+
+        <!-- CARD 2: G4SKINS -->
+        <div class="card">
+            <div class="card-number">01</div>
+            <div class="card-tag">BONUS • 18+</div>
+            <h2 class="card-title">G4SKINS<br>#REKLAMA</h2>
+            <p class="card-desc">Odbierz darmowe skrzynki oraz bonus przy doładowaniu!</p>
+
+            <div class="partner-logo-box">
+                <img src="https://i.postimg.cc/dV7hHsPy/g4skins.png" alt="G4Skins">
+            </div>
+
+            <div class="code-box">
+                <div>
+                    <span class="label">KOD</span>
+                    <span class="val">VOLLITE</span>
+                </div>
+                <button class="btn-copy" onclick="copyText('VOLLITE')">
+                    <i class="fa-regular fa-copy"></i>
+                </button>
+            </div>
+
+            <a href="#" target="_blank" class="btn-action">
+                ODWIEDŹ G4SKINS <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem;"></i>
+            </a>
+        </div>
+
+        <!-- CARD 3: CSGO-SKINS -->
+        <div class="card">
+            <div class="card-number">02</div>
+            <div class="card-tag">2ZŁ + 10%</div>
+            <h2 class="card-title">CSGO-SKINS +18<br>#REKLAMA</h2>
+            <p class="card-desc">Odbierz 2zł i 10 groszy oraz 10% bonusu przy doładowaniu!</p>
+
+            <div class="partner-logo-box">
+                <img src="https://i.postimg.cc/PJmgr8wd/csgoskins.webp" alt="CSGO-Skins">
+            </div>
+
+            <div class="code-box">
+                <div>
+                    <span class="label">KOD</span>
+                    <span class="val">VOLLITE</span>
+                </div>
+                <button class="btn-copy" onclick="copyText('VOLLITE')">
+                    <i class="fa-regular fa-copy"></i>
+                </button>
+            </div>
+
+            <a href="#" target="_blank" class="btn-action">
+                ODWIEDŹ <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem;"></i>
+            </a>
+        </div>
+
+        <!-- CARD 4: PIRATESWAP -->
+        <div class="card">
+            <div class="card-number">03</div>
+            <div class="card-tag">35% BONUSU</div>
+            <h2 class="card-title">PIRATESWAP<br>#REKLAMA</h2>
+            <p class="card-desc">35% bonusu przy doładowaniu</p>
+
+            <div class="partner-logo-box">
+                <img src="https://i.postimg.cc/BbxrQ1K4/pirateswap.webp" alt="PirateSwap">
+            </div>
+
+            <div class="code-box">
+                <div>
+                    <span class="label">KOD</span>
+                    <span class="val">VOLLITE</span>
+                </div>
+                <button class="btn-copy" onclick="copyText('VOLLITE')">
+                    <i class="fa-regular fa-copy"></i>
+                </button>
+            </div>
+
+            <a href="#" target="_blank" class="btn-action">
+                ODWIEDŹ <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem;"></i>
+            </a>
+        </div>
+
+        <!-- CARD 5: CS2 CONFIG -->
+        <div class="card">
+            <div class="card-number">04</div>
+            <div class="card-tag">04 / USTAWIENIA</div>
+            <h2 class="card-title">CS2 CONFIG</h2>
+
+            <div class="config-box">
+                <div class="config-header">
+                    <span class="config-title">CELOWNIK</span>
+                    <span class="sens-label" style="color: var(--neon-purple);">VOLLITE</span>
+                </div>
+
+                <div class="crosshair-preview">
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="28.5" y="18.5" width="3" height="8" fill="black" />
+                        <rect x="29.5" y="19.5" width="1" height="6" fill="#FFED68" />
+                        <rect x="28.5" y="33.5" width="3" height="8" fill="black" />
+                        <rect x="29.5" y="34.5" width="1" height="6" fill="#FFED68" />
+                        <rect x="18.5" y="28.5" width="8" height="3" fill="black" />
+                        <rect x="19.5" y="29.5" width="6" height="1" fill="#FFED68" />
+                        <rect x="33.5" y="28.5" width="8" height="3" fill="black" />
+                        <rect x="34.5" y="29.5" width="6" height="1" fill="#FFED68" />
+                    </svg>
+                </div>
+
+                <div class="copy-input-group">
+                    <input type="text" id="crosshair-code" value="CSGO-fMv2f-JuJKZ-M4xLu-br4YG-6obcP" readonly>
+                    <button class="btn-copy-sm" onclick="copyText('CSGO-fMv2f-JuJKZ-M4xLu-br4YG-6obcP')">Kopiuj</button>
+                </div>
+            </div>
+
+            <div class="config-box">
+                <div class="config-title" style="margin-bottom: 0.8rem;">CZUŁOŚĆ MYSZY</div>
+                
+                <div class="sens-grid">
+                    <div class="sens-item">
+                        <span class="sens-label">DPI</span>
+                        <span class="sens-value">1000</span>
+                    </div>
+                    <div class="sens-item">
+                        <span class="sens-label">CZUŁOŚĆ</span>
+                        <span class="sens-value">0.67</span>
+                    </div>
+                    <div class="sens-item">
+                        <span class="sens-label">ODŚWIEŻANIE</span>
+                        <span class="sens-value">144 Hz</span>
+                    </div>
+                    <div class="sens-item">
+                        <span class="sens-label">WINDOWS SENS</span>
+                        <span class="sens-value">10</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- AUDIO PLAYER -->
+    <div class="music-player">
+        <!-- Wskaż plik w tym samym folderze: nutka.mp3 -->
+        <audio id="audioPlayer" src="nutka.mp3" preload="auto"></audio>
+
+        <div class="player-info">
+            <button class="btn-play" id="playBtn" onclick="togglePlay()">
+                <i class="fa-solid fa-play" id="playIcon"></i>
+            </button>
+            <div class="track-name" id="trackTitle">Sentino - Rysy na rolexie</div>
+        </div>
+
+        <div class="player-controls">
+            <div class="btn-music-icon" onclick="toggleMute()">
+                <i class="fa-solid fa-volume-high" id="volumeIcon"></i>
+            </div>
+            <div class="volume-bar" onclick="setVolume(event)">
+                <div class="volume-level" id="volumeLevel"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // KOPIOWANIE TEKSTU
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2000);
+            });
+        }
+
+        // ODTWARZACZ MUZYKI
+        const audio = document.getElementById('audioPlayer');
+        const playBtn = document.getElementById('playBtn');
+        const playIcon = document.getElementById('playIcon');
+        const volumeLevel = document.getElementById('volumeLevel');
+        const volumeIcon = document.getElementById('volumeIcon');
+
+        audio.volume = 0.7;
+
+        function togglePlay() {
+            if (audio.paused) {
+                audio.play().then(() => {
+                    playIcon.className = "fa-solid fa-pause";
+                }).catch(e => {
+                    alert("Błąd odtwarzania! Upewnij się, że plik nutka.mp3 znajduje się w tym samym folderze co ten plik strony.");
+                    console.log("Szczegóły błędu:", e);
+                });
+            } else {
+                audio.pause();
+                playIcon.className = "fa-solid fa-play";
+            }
+        }
+
+        function setVolume(e) {
+            const volumeBar = e.currentTarget;
+            const rect = volumeBar.getBoundingClientRect();
+            const clickPosition = e.clientX - rect.left;
+            const width = rect.width;
+            
+            let newVolume = clickPosition / width;
+            if (newVolume < 0) newVolume = 0;
+            if (newVolume > 1) newVolume = 1;
+
+            audio.volume = newVolume;
+            volumeLevel.style.width = (newVolume * 100) + '%';
+            
+            if (newVolume === 0) {
+                volumeIcon.className = "fa-solid fa-volume-xmark";
+            } else {
+                volumeIcon.className = "fa-solid fa-volume-high";
+            }
+        }
+
+        function toggleMute() {
+            if (audio.volume > 0) {
+                audio.dataset.lastVolume = audio.volume;
+                audio.volume = 0;
+                volumeLevel.style.width = '0%';
+                volumeIcon.className = "fa-solid fa-volume-xmark";
+            } else {
+                const lastVol = audio.dataset.lastVolume || 0.7;
+                audio.volume = lastVol;
+                volumeLevel.style.width = (lastVol * 100) + '%';
+                volumeIcon.className = "fa-solid fa-volume-high";
+            }
+        }
+    </script>
+</body>
+</html>
